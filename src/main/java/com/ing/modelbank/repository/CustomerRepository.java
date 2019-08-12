@@ -8,4 +8,6 @@ import com.ing.modelbank.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 
+public	Customer findByLoginIdAndPassword(String loginId, String password);
+
 }
