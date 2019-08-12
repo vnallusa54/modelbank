@@ -27,7 +27,7 @@ public class Account implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long accountId;
-	private Long accountNumber;
+	private Integer accountNumber;
 	private double balance;
 	private String accountType;
 	
