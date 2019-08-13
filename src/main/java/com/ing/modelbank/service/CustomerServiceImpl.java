@@ -20,40 +20,42 @@ import com.ing.modelbank.repository.CustomerRepository;
 @Service
 public class CustomerServiceImpl implements ICustomerService {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
 
 	@Autowired
 	CustomerRepository customerRepository;
 
 	@Autowired
 	AccountRepository accountRepository;
+	Random random = new Random();
 
 	@Override
 	public CustomerDetailsDto register(CustomerDto customerDto) {
 		LOGGER.debug("CustomerServiceImpl of register()");
-		Random random = new Random();
+
 		Customer customer = null;
 		Account account = null;
 		CustomerDetailsDto customerDetailsDto = null;
 		if (customerDto != null) {
 			if (customerDto.getPassword().equals(customerDto.getConfirmPassword())) {
 				if (emailValidation(customerDto.getEmail())) {
-						customer = new Customer();
-						account = new Account();
-						BeanUtils.copyProperties(customerDto, customer);
 
-						customer.setLoginId(customerDto.getFirstName() + random.nextInt(1000));
-						customerRepository.save(customer);
-						account.setAccountNumber(random.nextInt(1000000));
-						account.setAccountType("Savings Account");
-						account.setBalance(500000.0);
-						account.setCustomer(customer);
-						accountRepository.save(account);
+					customer = new Customer();
+					account = new Account();
+					BeanUtils.copyProperties(customerDto, customer);
 
-						customerDetailsDto = new CustomerDetailsDto();
-						customerDetailsDto.setAccountNumber(account.getAccountNumber());
-						customerDetailsDto.setLoginId(customer.getLoginId());
-						customerDetailsDto.setMessage("You have Successfully Registered.....");
+					customer.setLoginId(customerDto.getFirstName() + random.nextInt(1000));
+					customerRepository.save(customer);
+					account.setAccountNumber(random.nextInt(1000000));
+					account.setAccountType("Savings Account");
+					account.setBalance(500000.0);
+					account.setCustomer(customer);
+					accountRepository.save(account);
+
+					customerDetailsDto = new CustomerDetailsDto();
+					customerDetailsDto.setAccountNumber(account.getAccountNumber());
+					customerDetailsDto.setLoginId(customer.getLoginId());
+					customerDetailsDto.setMessage("You have Successfully Registered.....");
 
 				} else {
 					throw new EmailException("Enter Valid Email...");

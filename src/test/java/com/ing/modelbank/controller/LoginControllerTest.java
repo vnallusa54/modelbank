@@ -61,7 +61,8 @@ public class LoginControllerTest {
 			throw new RuntimeException(e);
 		}
 	}
-
+	
+	@Test
  	public void login() throws Exception {
 		Mockito.when(loginService.login(loginDto)).thenReturn(loginResponseDto);
 		

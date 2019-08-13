@@ -21,7 +21,7 @@ import com.ing.modelbank.repository.TransactionRepository;
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(TransactionServiceImpl.class);
+	private static final  Logger LOGGER = LoggerFactory.getLogger(TransactionServiceImpl.class);
 	
 	@Autowired
 	private AccountRepository accountRepository;
@@ -38,9 +38,9 @@ public class TransactionServiceImpl implements TransactionService {
 
 		Transaction transactionFrom = new Transaction();
 		Transaction transactionTo = new Transaction();
-		TransactionDetailsDTO TransactionDetailsDTO = new TransactionDetailsDTO();
-		double amountDebit = 0.0;
-		double amountCredit = 0.0;
+		TransactionDetailsDTO transactionDetailsDTO = new TransactionDetailsDTO();
+		double amountDebit = 0l;
+		double amountCredit = 0l;
 
 		Account fromAccount = accountRepository.findByAccountNumber(transactionDTO.getFromAccount());
 		Account toAccount = accountRepository.findByAccountNumber(transactionDTO.getToAccount());
@@ -75,18 +75,18 @@ public class TransactionServiceImpl implements TransactionService {
 			transactionTo.setTransactionType("CREDIT");
 			transactionRepository.save(transactionTo);
 
-			TransactionDetailsDTO.setMessage("Transaction Successful");
-			TransactionDetailsDTO.setTransactionId(transactionFrom.getTransactionId());
+			transactionDetailsDTO.setMessage("Transaction Successful");
+			transactionDetailsDTO.setTransactionId(transactionFrom.getTransactionId());
 			}else
 			{
-				TransactionDetailsDTO.setMessage("transaction failed due to suffiecient balance");
-				TransactionDetailsDTO.setTransactionId(0L);
+				transactionDetailsDTO.setMessage("transaction failed due to suffiecient balance");
+				transactionDetailsDTO.setTransactionId(0L);
 			}
 		} else {
-			TransactionDetailsDTO.setMessage("transaction failed due to negative amount");
-			TransactionDetailsDTO.setTransactionId(0L);
+			transactionDetailsDTO.setMessage("transaction failed due to negative amount");
+			transactionDetailsDTO.setTransactionId(0L);
 		}
-		return TransactionDetailsDTO;
+		return transactionDetailsDTO;
 	}
 
 	@Override

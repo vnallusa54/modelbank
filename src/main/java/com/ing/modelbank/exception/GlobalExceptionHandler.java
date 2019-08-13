@@ -14,11 +14,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	public ResponseEntity<ResponseError> globalExceptionHandler(Exception exception) {
 
-		ResponseError ResponseDto = new ResponseError(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
+		ResponseError responseDto = new ResponseError(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
 
-		ResponseDto.setMessage(exception.getMessage());
+		responseDto.setMessage(exception.getMessage());
 
-		return new ResponseEntity<>(ResponseDto, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
 
 	}
 

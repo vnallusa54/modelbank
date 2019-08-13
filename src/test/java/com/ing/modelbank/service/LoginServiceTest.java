@@ -54,7 +54,7 @@ public class LoginServiceTest {
 		Mockito.when(customerRepository.findByLoginIdAndPassword(customer.getLoginId(), customer.getPassword()))
 				.thenReturn(customer);
 		LoginResponseDto actualValue = LoginServiceImpl.login(loginDto);
-		Assert.assertEquals(actualValue.getMessage(), "logged in successfully..");
+		Assert.assertEquals("logged in successfully..", actualValue.getMessage());
 
 	}
 }

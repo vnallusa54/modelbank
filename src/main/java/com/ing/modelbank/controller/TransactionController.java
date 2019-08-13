@@ -26,7 +26,7 @@ import com.ing.modelbank.service.TransactionService;
 @RequestMapping("/api")
 public class TransactionController {
 	
-	private final static Logger LOGGER = LoggerFactory.getLogger(TransactionController.class);
+	private static final  Logger LOGGER = LoggerFactory.getLogger(TransactionController.class);
 	
 	
 	@Autowired

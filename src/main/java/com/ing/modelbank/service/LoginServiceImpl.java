@@ -29,6 +29,7 @@ public class LoginServiceImpl implements LoginService {
 		Customer customer = customerRepository.findByLoginIdAndPassword(loginDto.getLoginId(), loginDto.getPassword());
 
 		if (customer != null) {
+			LOGGER.info("customer fetched");
 			Account account = accountRepository.findByCustomer(customer.getCustomerId());
 			loginResponseDto.setAccountNumber(account.getAccountNumber());
 			loginResponseDto.setMessage("logged in successfully..");

@@ -20,7 +20,7 @@ import com.ing.modelbank.service.ICustomerService;
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 public class CustomerController {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
+	private static final  Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
 	ICustomerService customerService;
@@ -29,6 +29,6 @@ public class CustomerController {
 	public ResponseEntity<CustomerDetailsDto> register(@RequestBody CustomerDto customerDto){
 		LOGGER.debug("CustomerController of ");
 		CustomerDetailsDto customerDetailsDto = customerService.register(customerDto);
-		return new ResponseEntity<CustomerDetailsDto>(customerDetailsDto,HttpStatus.CREATED);
+		return new ResponseEntity<>(customerDetailsDto,HttpStatus.CREATED);
 	}
 }

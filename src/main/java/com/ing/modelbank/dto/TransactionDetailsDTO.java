@@ -2,21 +2,15 @@ package com.ing.modelbank.dto;
 
 import java.io.Serializable;
 
-public class TransactionDetailsDTO implements Serializable{
+import lombok.Getter;
+import lombok.Setter;
 
-	
+@Getter
+@Setter
+public class TransactionDetailsDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Long transactionId;
 	private String message;
-	public Long getTransactionId() {
-		return transactionId;
-	}
-	public void setTransactionId(Long transactionId) {
-		this.transactionId = transactionId;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
+
 }
