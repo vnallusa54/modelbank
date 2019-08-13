@@ -1,9 +1,10 @@
 package com.ing.modelbank.service;
 
 import com.ing.modelbank.dto.LoginDto;
+import com.ing.modelbank.dto.LoginResponseDto;
 
 public interface LoginService {
 
-	public String login(LoginDto loginDto);
+	public LoginResponseDto login(LoginDto loginDto);
 
 }

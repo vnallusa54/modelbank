@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ing.modelbank.controller.LoginController;
 import com.ing.modelbank.dto.LoginDto;
+import com.ing.modelbank.dto.LoginResponseDto;
 import com.ing.modelbank.entity.Customer;
 import com.ing.modelbank.service.LoginService;
 
@@ -39,10 +40,12 @@ public class LoginControllerTest {
 
 	Customer customer;
 	LoginDto loginDto;
-
+	LoginResponseDto loginResponseDto;
 	@Before
 	public void init() {
-
+		
+		loginResponseDto = new LoginResponseDto();
+		loginResponseDto.setMessage("login successfull");
 		customer = new Customer();
 
 		loginDto = new LoginDto();
@@ -60,10 +63,10 @@ public class LoginControllerTest {
 	}
 
  	public void login() throws Exception {
-		Mockito.when(loginService.login(loginDto)).thenReturn("login successfull");
+		Mockito.when(loginService.login(loginDto)).thenReturn(loginResponseDto);
 		
 		mockMvc.perform(MockMvcRequestBuilders.put("/modelbank/api/login").contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.ALL).content(asJsonString("login successfull"))).andReturn();
+				.accept(MediaType.ALL).content(asJsonString(loginResponseDto))).andReturn();
 
 	}
 

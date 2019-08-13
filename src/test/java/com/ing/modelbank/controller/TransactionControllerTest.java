@@ -52,8 +52,7 @@ public class TransactionControllerTest {
 		AccountFrom.setBalance(1000.0);	
 		Customer customerFrom=new Customer();
 		customerFrom.setAddress("BTM");
-		customerFrom.setAge(23);
-		customerFrom.setConfirmPassword("ok");
+		customerFrom.setAge(23L);
 		customerFrom.setCustomerId(1L);
 		customerFrom.setEmail("a@a.com");
 		customerFrom.setFirstName("shashank");
@@ -70,8 +69,7 @@ public class TransactionControllerTest {
 		AccountTo.setBalance(1000.0);	
 		Customer customerTo=new Customer();
 		customerTo.setAddress("BTM");
-		customerTo.setAge(23);
-		customerTo.setConfirmPassword("ok");
+		customerTo.setAge(23L);
 		customerTo.setCustomerId(1L);
 		customerTo.setEmail("a@a.com");
 		customerTo.setFirstName("shashank");
@@ -132,8 +130,7 @@ public class TransactionControllerTest {
 		AccountFrom.setBalance(1000.0);	
 		Customer customerFrom=new Customer();
 		customerFrom.setAddress("BTM");
-		customerFrom.setAge(23);
-		customerFrom.setConfirmPassword("ok");
+		customerFrom.setAge(23L);
 		customerFrom.setCustomerId(1L);
 		customerFrom.setEmail("a@a.com");
 		customerFrom.setFirstName("shashank");
@@ -150,8 +147,7 @@ public class TransactionControllerTest {
 		AccountTo.setBalance(1000.0);	
 		Customer customerTo=new Customer();
 		customerTo.setAddress("BTM");
-		customerTo.setAge(23);
-		customerTo.setConfirmPassword("ok");
+		customerTo.setAge(23L);
 		customerTo.setCustomerId(1L);
 		customerTo.setEmail("a@a.com");
 		customerTo.setFirstName("shashank");
@@ -184,8 +180,7 @@ public class TransactionControllerTest {
 		AccountFrom.setBalance(1000.0);	
 		Customer customerFrom=new Customer();
 		customerFrom.setAddress("BTM");
-		customerFrom.setAge(23);
-		customerFrom.setConfirmPassword("ok");
+		customerFrom.setAge(23L);
 		customerFrom.setCustomerId(1L);
 		customerFrom.setEmail("a@a.com");
 		customerFrom.setFirstName("shashank");
@@ -202,8 +197,7 @@ public class TransactionControllerTest {
 		AccountTo.setBalance(1000.0);	
 		Customer customerTo=new Customer();
 		customerTo.setAddress("BTM");
-		customerTo.setAge(23);
-		customerTo.setConfirmPassword("ok");
+		customerTo.setAge(23L);
 		customerTo.setCustomerId(1L);
 		customerTo.setEmail("a@a.com");
 		customerTo.setFirstName("shashank");

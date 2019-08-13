@@ -36,4 +36,5 @@ public class Customer implements Serializable{
 	private String address;
 	private String pan;
 
+	
 }

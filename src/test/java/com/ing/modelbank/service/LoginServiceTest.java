@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ing.modelbank.dto.LoginDto;
+import com.ing.modelbank.dto.LoginResponseDto;
 import com.ing.modelbank.entity.Customer;
 import com.ing.modelbank.repository.CustomerRepository;
 import com.ing.modelbank.service.LoginServiceImpl;
@@ -52,8 +53,8 @@ public class LoginServiceTest {
 
 		Mockito.when(customerRepository.findByLoginIdAndPassword(customer.getLoginId(), customer.getPassword()))
 				.thenReturn(customer);
-		String actualValue = LoginServiceImpl.login(loginDto);
-		Assert.assertEquals(actualValue, "logged in successfully..");
+		LoginResponseDto actualValue = LoginServiceImpl.login(loginDto);
+		Assert.assertEquals(actualValue.getMessage(), "logged in successfully..");
 
 	}
 }

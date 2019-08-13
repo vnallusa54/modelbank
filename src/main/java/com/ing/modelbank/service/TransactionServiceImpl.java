@@ -75,7 +75,7 @@ public class TransactionServiceImpl implements TransactionService {
 			transactionTo.setTransactionType("CREDIT");
 			transactionRepository.save(transactionTo);
 
-			TransactionDetailsDTO.setMessage("transaction Sucess");
+			TransactionDetailsDTO.setMessage("Transaction Successful");
 			TransactionDetailsDTO.setTransactionId(transactionFrom.getTransactionId());
 			}else
 			{

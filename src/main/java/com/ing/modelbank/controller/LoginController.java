@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ing.modelbank.dto.LoginDto;
+import com.ing.modelbank.dto.LoginResponseDto;
 import com.ing.modelbank.service.LoginService;
 
 @RestController
@@ -26,11 +27,11 @@ public class LoginController {
 	
 	
 	@PutMapping("/login")
-	public ResponseEntity<String> login(@RequestBody LoginDto loginDto)
+	public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto)
 	{
 		LOGGER.info("inside modelbank");
-		String msg=loginService.login(loginDto);
-		return new ResponseEntity<>(msg,HttpStatus.OK);
+		LoginResponseDto loginResponseDto=loginService.login(loginDto);
+		return new ResponseEntity<>(loginResponseDto,HttpStatus.OK);
 	}
 		
 	 

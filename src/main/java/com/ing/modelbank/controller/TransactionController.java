@@ -22,7 +22,7 @@ import com.ing.modelbank.entity.Transaction;
 import com.ing.modelbank.service.TransactionService;
 
 @RestController
-@CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
+@CrossOrigin(origins = "**")
 @RequestMapping("/api")
 public class TransactionController {
 	
