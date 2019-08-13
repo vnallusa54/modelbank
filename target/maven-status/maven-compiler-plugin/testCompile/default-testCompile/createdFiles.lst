@@ -1,0 +1,5 @@
+com\ing\modelbank\service\AccountServiceTest.class
+com\ing\modelbank\controller\LoginControllerTest.class
+com\ing\modelbank\service\LoginServiceTest.class
+com\ing\modelbank\controller\AccountControllerTest.class
+com\ing\modelbank\ModelbankApplicationTests.class
