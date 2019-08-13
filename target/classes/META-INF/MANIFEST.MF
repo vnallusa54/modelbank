@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: User1
+Build-Jdk: 12.0.2
+Implementation-Title: modelbank
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ing
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/modelbank
+Created-By: Maven Integration for Eclipse
+

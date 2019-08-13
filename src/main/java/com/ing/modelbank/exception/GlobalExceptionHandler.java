@@ -10,16 +10,22 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-
 	@ExceptionHandler(Exception.class)
 
 	public ResponseEntity<ResponseError> globalExceptionHandler(Exception exception) {
 
-		ResponseError ResponseDto = new ResponseError();
+		ResponseError ResponseDto = new ResponseError(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
 
 		ResponseDto.setMessage(exception.getMessage());
 
 		return new ResponseEntity<>(ResponseDto, HttpStatus.NOT_FOUND);
+
+	}
+
+	@ExceptionHandler(value = { AccountNotFoundException.class })
+	public ResponseEntity<ResponseError> ageException(Exception e) {
+		ResponseError error = new ResponseError(e.getMessage(), HttpStatus.BAD_REQUEST.value());
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
 	}
 
